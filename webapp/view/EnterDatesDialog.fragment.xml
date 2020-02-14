@@ -1,0 +1,72 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="enterDatesDialog" title="{i18n>enterdate}">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto" id="idGrid">
+			<l:content>
+				<f:SimpleForm id="SimpleFormDisplay354" minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+					title="{i18n>enterdateq}" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+					<f:content>
+						<!--<Label text="{i18n>zeitraumvon}" labelFor="DP4"/>-->
+						<!--<Label text="{i18n>zeitraumvon}" />-->
+						<!--<DatePicker id="DP1" value="{path:'fdata>/_START', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"-->
+						<!--	class="sapUiSmallMarginBottom"/>-->
+						<!--<DatePicker id="DP2" value="{path:'fdata>/_ENDE', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"-->
+						<!--	class="sapUiSmallMarginBottom"/>-->
+						<!--<DateTimePicker id="DTP1"-->
+						<!--		value="{path: 'fdata>/_START', type:'sap.ui.model.type.DateTime', formatOptions: {pattern: "yyyy-MM-dd hh:mm:ss", strictParsing: true}}"/>	-->
+						<!--<DateTimePicker id="DTP1"-->
+						<!--	value="{path: 'fdata>/_START', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', strictParsing: true}}"/>							-->
+						<!--<DateTimePicker id="DTP2"-->
+						<!--	value="{path: 'fdata>/_ENDE', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', strictParsing: true}}"/>							-->
+						<DateTimePicker id="DTP1" value="{fdata>/_START}" valueFormat="yyyy-MM-dd HH:mm:ss" displayFormat="medium"/>
+						<DateTimePicker id="DTP2" value="{fdata>/_ENDE}" valueFormat="yyyy-MM-dd HH:mm:ss" displayFormat="medium"/>
+						<!-- <DateTimePicker -->
+						<!--id="startDate" -->
+						<!--placeholder="Enter a crazy date and time, e.g. 23/01/12345" -->
+						<!--valueFormat="yyyy-MM-dd HH:mm:ss" -->
+						<!--validationError="valError"-->
+						<!--value="{-->
+						<!--	path: 'fdata>/_START',-->
+						<!--    type: 'sap.ui.model.type.DateTime',  -->
+						<!--strictParsing: 'true'-->
+						<!--  }" -->
+						<!--  />-->
+						<!--<Toolbar>-->
+						<!--<ToolbarSpacer/>-->
+						<Label text="{i18n>zeitraumsetzen}"/>
+						<FlexBox direction="Column" alignItems="Start">
+							<items>
+								<!--<SegmentedButton  id="time" selectedKey="monat" selectionChange="onZeitraumSetzen">-->
+								<!--	<items>-->
+								<!--		<SegmentedButtonItem width="21em" text="{i18n>awoche}"/>-->
+								<!--		<SegmentedButtonItem width="21em" text="{i18n>amonat}" key="monat"/>-->
+								<!--		<SegmentedButtonItem width="21em" text="{i18n>ajahr}"/>-->
+								<!--	</items>-->
+								<!--</SegmentedButton>-->
+								<!--<SegmentedButton id="time2" selectedKey="monat2" selectionChange="onZeitraumSetzen2">-->
+								<!--	<items>-->
+								<!--<SegmentedButtonItem width="21em" text="{i18n>lwoche}"/>-->
+								<!--<SegmentedButtonItem width="21em" text="{i18n>lmonat}" key="monat2"/>-->
+								<!--<SegmentedButtonItem width="21em" text="{i18n>ljahr}"/>-->
+								<!--	</items>-->
+								<!--</SegmentedButton>-->
+								<RadioButtonGroup select="onSelectRadio" class="sapUiMediumMarginBottom">
+									<RadioButton groupName="GroupA" text="{i18n>amonat}"/>
+									<RadioButton groupName="GroupA" text="{i18n>awoche}"/>
+									<RadioButton groupName="GroupA" text="{i18n>ajahr}"/>
+									<RadioButton groupName="GroupA" text="{i18n>lmonat}"/>
+									<RadioButton groupName="GroupA" text="{i18n>lwoche}"/>
+									<RadioButton groupName="GroupA" text="{i18n>ljahr}"/>
+								</RadioButtonGroup>
+							</items>
+						</FlexBox>
+						<!-- <ToolbarSpacer/>-->
+						<!--</Toolbar>-->
+					</f:content>
+				</f:SimpleForm>
+			</l:content>
+		</l:Grid>
+		<beginButton>
+			<Button text=" {i18n>dialogCloseButtonText}" press="onCloseEnterDates"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

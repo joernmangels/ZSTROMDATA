@@ -1,0 +1,17 @@
+<mvc:View controllerName="de.mangels.controller.Startpage" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<App class="sgroup1" id="Menu">
+		<pages>
+			<Page title="{i18n>title}">
+				<headerContent>
+					<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom"  tooltip="{i18n>fullscreen}"/>
+					<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Image>
+				</headerContent>
+				<mvc:XMLView viewName="de.mangels.view.TileMenu"/>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

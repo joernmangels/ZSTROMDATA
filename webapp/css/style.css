@@ -1,0 +1,66 @@
+#inhalte-werden-zentriert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.equalColumns .columns {
+    min-height: 200px;
+}
+
+.equalColumns .columns .sapMFlexItem {
+    background-color: #d1dbbd;
+    width: 0;
+    margin: 0 5px 0 0;
+    padding: 10px;
+}
+
+#big1 {
+    transform: scale(1.8);
+    -moz-transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    -o-transform: scale(1.8);
+    -webkit-transform: scale(1.8);
+}
+
+.box {
+    box-sizing: border-box;
+    width: 100%;
+    border: 4px solid white;
+    padding: 30px;
+}
+
+#zoomi {
+    zoom: 0.5;
+    -moz-transform: scale(0.5);
+}
+
+.BIGFONT_BAK {
+    font-size:15rem !important;
+    color: ivory;
+}
+
+.BIGFONT {
+    font-size: 16vw;
+    color: ivory;
+}
+
+
+.BIGFONT1 {
+    font-size:4vw;
+}
+
+.BIGFONT1_BAK {
+    font-size:4rem !important;
+}
+
+.GREEN {
+    background-color: #33FF00;
+}
+
+.RED {
+    background-color: #FF0000;
+}
+
+
+

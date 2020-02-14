@@ -1,0 +1,57 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.suite.ui.commons" xmlns:m="sap.m" controllerName="de.mangels.controller.Aktuell"
+	xmlns:mc="sap.suite.ui.microchart">
+	<m:Page
+		title="{i18n>akuellpv} - {i18n>pvzaehler} {pvaktuell>/AktuellSet/zaehlernummer} - {i18n>pvmessung} {pvaktuell>/AktuellSet/letztemessung}"
+		showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">
+		<m:headerContent>
+			<m:ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom" tooltip="{i18n>fullscreen}"/>
+			<m:Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
+				<m:layoutData>
+					<m:FlexItemData growFactor="1"/>
+				</m:layoutData>
+			</m:Image>
+		</m:headerContent>
+		<m:content>
+			<!--<m:ObjectHeader responsive="true">-->
+			<!--title="{i18n>akuellpv} - {i18n>pvzaehler} {pvaktuell>/AktuellSet/zaehlernummer} - {i18n>pvmessung} {pvaktuell>/AktuellSet/letztemessung}">-->
+			<!--<m:headerContainer>-->
+			<m:HeaderContainer scrollStep="200" scrollTime="500" showDividers="true" class="sapUiSmallMargin">
+				<m:FlexBox width="100%" height="10rem" alignItems="Center" justifyContent="Center" direction="Column">
+					<!--<m:items>-->
+					<m:FlexBox width="25%" height="10rem">
+						<m:Title text="{i18n>pveinspeiseleistung_heute}" class="sapUiSmallMargin"/>
+						<mc:BulletMicroChart size="L" scale="kw/h" targetValue="20" forecastValue="10" class="sapUiSmallMargin" press="press">
+							<mc:actual>
+								<mc:BulletMicroChartData value="{pvaktuell>/AktuellSet/gesamt_heute}"
+									color="{ path: 'pvaktuell>/AktuellSet/gesamt_heute', Formatter: 'de.mangels.controller.Formatter.gesamt_heute' }"/>
+							</mc:actual>
+							<mc:thresholds>
+								<mc:BulletMicroChartData value="0" color="Error"/>
+								<mc:BulletMicroChartData value="9" color="Critical"/>
+								<mc:BulletMicroChartData value="10" color="Good"/>
+							</mc:thresholds>
+						</mc:BulletMicroChart>
+					</m:FlexBox>
+					<!--</m:items>-->
+				</m:FlexBox>
+				
+			</m:HeaderContainer>
+			<!--</m:headerContainer>-->
+			<!--</m:ObjectHeader>-->
+			<m:HeaderContainer scrollStep="200" scrollTime="500" showDividers="true" class="sapUiSmallMargin">
+				<m:FlexBox width="12rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+					<m:Title text="{i18n>pvtagesziel}" class="sapUiSmallMargin"/>
+					<m:FlexBox width="5rem" height="5rem">
+						<mc:RadialMicroChart size="M" valueColor="Good" percentage="{pvaktuell>/AktuellSet/tagesziel}"/>
+					</m:FlexBox>
+				</m:FlexBox>
+				<m:FlexBox width="12rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+					<m:Title text="{i18n>pvwochenziel}" class="sapUiSmallMargin"/>
+					<m:FlexBox width="5rem" height="5rem">
+						<mc:RadialMicroChart size="M" valueColor="Good" percentage="{pvaktuell>/AktuellSet/wochenziel}"/>
+					</m:FlexBox>
+				</m:FlexBox>
+			</m:HeaderContainer>
+		</m:content>
+	</m:Page>
+</mvc:View>

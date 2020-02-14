@@ -1,0 +1,14 @@
+<mvc:View controllerName="de.mangels.controller.Cards_Watt" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f"
+	xmlns:w="sap.ui.integration.widgets" xmlns:cssgrid="sap.ui.layout.cssgrid" xmlns:layout="sap.ui.layout" xmlns:m="sap.m">
+	<m:Panel expandable="false" expanded="true">
+		<HBox width="100%" alignContent="Center" alignItems="Center" direction="Column">
+			<items>
+				<FlexBox width="30%" alignItems="Start" justifyContent="Start">
+					<items>
+						<w:Card manifest="./cards/Card_watt_manifest.json" action="onAction"></w:Card>
+					</items>
+				</FlexBox>
+			</items>
+		</HBox>
+	</m:Panel>
+</mvc:View>

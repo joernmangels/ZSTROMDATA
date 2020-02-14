@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:layout="sap.ui.layout">
+	<Dialog id="infoDialog" title="{i18n>title}">
+		<content>
+			<HBox class="sapUiSmallMarginTop sapUiSmallMarginBottom sapUiSmallMarginBegin">
+				<Image width="170px" densityAware="false" decorative="false" src="images/sonne.png"></Image>
+				<VBox class="sapUiSmallMarginBegin">
+					<Title text="{i18n>title}"/>
+					<Text text="{i18n>appDescription}"/>
+					<Text text="{i18n>appResponsible}"/>
+				</VBox>
+			</HBox>
+			<!--<layout:VerticalLayout class="sapUiContentPadding" width="100%">-->
+			<layout:HorizontalLayout class="sapUiContentPadding">
+				<layout:content>
+					<Link text="{i18n>link1}" target="_blank" href="https://blogs.sap.com/2018/06/19/electricity-fiori-app-for-home/"/>
+					<Link text="{i18n>link2}" target="_blank" href="https://twitter.com/hashtag/UI5Top5/"/>
+					<Link text="{i18n>link3}" target="_blank" href="https://twitter.com/tbroek/status/1011142941379846144"/>
+				</layout:content>
+				<!--</layout:VerticalLayout>-->
+			</layout:HorizontalLayout>
+			<Table id="idChangelogTable" inset="false" items="{ path: 'chl>/Changelog', sorter: { path: 'version', descending: true } }">
+				<columns>
+					<Column width="12em">
+						<Text text="Version"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Datum"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+						<Text text="Features"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier title="{chl>version}" text="{ProductId}"/>
+							<Text text="{chl>release}"/>
+							<Text text="{chl>features}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button press="onCloseDialog" text="{i18n>dialogCloseButtonText}"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

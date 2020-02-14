@@ -1,0 +1,73 @@
+<mvc:View controllerName="de.mangels.controller.Topvalues" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:tnt="sap.tnt">
+	<Page title="{i18n>topvaluestitle}" showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">
+		<headerContent>
+			<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom" tooltip="{i18n>fullscreen}"/>
+			<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
+				<layoutData>
+					<FlexItemData growFactor="1"/>
+				</layoutData>
+			</Image>
+		</headerContent>
+		<l:VerticalLayout width="100%">
+			<l:content>
+				<Panel expandable="true" expanded="true" headerText="{i18n>topvalues_pv}">
+					<Table id="idPVTable" inset="false" items="{pvhigh>/0/PVTAB}" width="auto" enableBusyIndicator="true" noDataText="{i18n>topvalues_reload}">
+						<columns>
+							<Column width="25%">
+								<Text text="{i18n>topvalues_dim}"/>
+							</Column>
+							<Column width="25%">
+								<Text text="{i18n>topvalues_stich}"/>
+							</Column>
+							<Column width="25%">
+								<Text text="{i18n>topvalues_zeit}"/>
+							</Column>
+							<Column width="25%">
+								<Text text="Wert"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<tnt:InfoLabel text="{ path: 'pvhigh>art', formatter: 'de.mangels.controller.formatter.topvalues_art' }" displayOnly="true" colorScheme="8"/>
+									<Text text="{pvhigh>zeit1}"/>
+									<Text text="{pvhigh>zeit2}"/>
+									<Text text="{pvhigh>value}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</Panel>
+				<Panel expandable="true" expanded="true" headerText="{i18n>topvalues_vb}">
+					<Table id="idVBTable" inset="false" items="{vbhigh>/0/VBTAB}" width="auto" enableBusyIndicator="true" noDataText="{i18n>topvalues_reload}">
+						<columns>
+							<Column width="25%">
+								<Text text="{i18n>topvalues_dim}"/>
+							</Column>
+							<Column width="25%">
+								<Text text="{i18n>topvalues_stich}"/>
+							</Column>
+							<Column width="25%">
+								<Text text="{i18n>topvalues_zeit}"/>
+							</Column>
+							<Column width="25%">
+								<Text text="Wert"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<tnt:InfoLabel text="{ path: 'vbhigh>art', formatter: 'de.mangels.controller.formatter.topvalues_art' }" displayOnly="true" colorScheme="3"/>
+									<Text text="{vbhigh>zeit1}"/>
+									<Text text="{vbhigh>zeit2}"/>
+									<Text text="{vbhigh>value}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</Panel>
+			</l:content>
+		</l:VerticalLayout>
+	</Page>
+</mvc:View>

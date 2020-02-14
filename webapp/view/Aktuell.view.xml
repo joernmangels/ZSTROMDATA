@@ -1,0 +1,300 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.suite.ui.commons" xmlns:m="sap.m"
+	xmlns:mc="sap.suite.ui.microchart" controllerName="de.mangels.controller.Aktuell">
+	<m:Page title="{i18n>aktuelltitle}" showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">
+		<m:headerContent>
+			<m:Button icon="sap-icon://action-settings" press="handleSettings" tooltip="{i18n>settings}"/>
+			<m:ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom" tooltip="{i18n>fullscreen}"/>
+			<m:Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
+				<m:layoutData>
+					<m:FlexItemData growFactor="1"/>
+				</m:layoutData>
+			</m:Image>
+		</m:headerContent>
+		<m:content>
+			<m:Panel expandable="true" expanded="true"
+				headerText="{i18n>pveinspeiseleistung} - {i18n>pvzaehler} {pvaktuell>/AktuellSet/zaehlernummer} - {i18n>pvmessung} {pvaktuell>/AktuellSet/letztemessung}"
+				width="auto" class="sapUiResponsiveMargin">
+				<m:ObjectHeader responsive="true" title="{i18n>pveinspeiseleistung}" id="PPV">
+					<m:headerContainer>
+						<m:HeaderContainer scrollStep="200" scrollTime="500" showDividers="true" class="sapUiSmallMargin">
+							<m:FlexBox width="10rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<TileContent id="watt" unit="{pvaktuell_rt>/AktuellEchtzeitSet/zeit}" footer="{i18n>aktuelle_leistung}">
+									<content>
+										<NumericContent scale="W" value="{pvaktuell_rt>/AktuellEchtzeitSet/watt}"
+											valueColor="{ path: 'pvaktuell_rt>/AktuellEchtzeitSet/watt', formatter: 'de.mangels.controller.formatter.aktuelle_leistung' }"
+											press="pressleistung_pv"/>
+									</content>
+								</TileContent>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>heute}"/>
+								<mc:BulletMicroChart size="L" scale=" {mc_tag>/SettingsSet/pv1_scale}" 
+									targetValue="{path:'mc_tag>/SettingsSet/pv1_targetvalue', type:'sap.ui.model.type.String'}">
+									<mc:actual>
+										<mc:BulletMicroChartData value="{pvaktuell>/AktuellSet/gesamt_heute}"
+											color="{parts: ['pvaktuell>/AktuellSet/gesamt_heute', 'mc_tag>/SettingsSet/pv1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heute_neu' }"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold1', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/pv1_threshold1_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold2', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/pv1_threshold2_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold3', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/pv1_threshold3_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold4', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/pv1_threshold4_color}"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>woche}"/>
+								<mc:BulletMicroChart size="L" scale=" {mc_woche>/SettingsSet/pv1_scale}"
+									targetValue="{path:'mc_woche>/SettingsSet/pv1_targetvalue', type:'sap.ui.model.type.String'}">
+									<mc:actual>
+										<mc:BulletMicroChartData value="{pvaktuell>/AktuellSet/gesamt_woche}"
+											color="{parts: ['pvaktuell>/AktuellSet/gesamt_woche', 'mc_woche>/SettingsSet/pv1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heute_neu' }"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="{path:'mc_woche>/SettingsSet/pv1_threshold1', type:'sap.ui.model.type.String'}"
+											color="{mc_woche>/SettingsSet/pv1_threshold1_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_woche>/SettingsSet/pv1_threshold2', type:'sap.ui.model.type.String'}"
+											color="{mc_woche>/SettingsSet/pv1_threshold2_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_woche>/SettingsSet/pv1_threshold3', type:'sap.ui.model.type.String'}"
+											color="{mc_woche>/SettingsSet/pv1_threshold3_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_woche>/SettingsSet/pv1_threshold4', type:'sap.ui.model.type.String'}"
+											color="{mc_woche>/SettingsSet/pv1_threshold4_color}"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>monat}"/>
+								<mc:BulletMicroChart size="L" scale=" {mc_monat>/SettingsSet/pv1_scale}"
+									targetValue="{path:'mc_monat>/SettingsSet/pv1_targetvalue', type:'sap.ui.model.type.String'}">
+									<mc:actual>
+										<mc:BulletMicroChartData value="{pvaktuell>/AktuellSet/gesamt_monat}"
+											color="{parts: ['pvaktuell>/AktuellSet/gesamt_monat', 'mc_monat>/SettingsSet/pv1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heute_neu' }"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="{path:'mc_monat>/SettingsSet/pv1_threshold1', type:'sap.ui.model.type.String'}"
+											color="{mc_monat>/SettingsSet/pv1_threshold1_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_monat>/SettingsSet/pv1_threshold2', type:'sap.ui.model.type.String'}"
+											color="{mc_monat>/SettingsSet/pv1_threshold2_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_monat>/SettingsSet/pv1_threshold3', type:'sap.ui.model.type.String'}"
+											color="{mc_monat>/SettingsSet/pv1_threshold3_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_monat>/SettingsSet/pv1_threshold4', type:'sap.ui.model.type.String'}"
+											color="{mc_monat>/SettingsSet/pv1_threshold4_color}"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>jahr}"/>
+								<mc:BulletMicroChart size="L" scale=" {mc_jahr>/SettingsSet/pv1_scale}"
+									targetValue="{path:'mc_jahr>/SettingsSet/pv1_targetvalue', type:'sap.ui.model.type.String'}">
+									<mc:actual>
+										<mc:BulletMicroChartData value="{pvaktuell>/AktuellSet/gesamt_jahr}"
+											color="{parts: ['pvaktuell>/AktuellSet/gesamt_jahr', 'mc_jahr>/SettingsSet/pv1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heute_neu' }"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="{path:'mc_jahr>/SettingsSet/pv1_threshold1', type:'sap.ui.model.type.String'}"
+											color="{mc_jahr>/SettingsSet/pv1_threshold1_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_jahr>/SettingsSet/pv1_threshold2', type:'sap.ui.model.type.String'}"
+											color="{mc_jahr>/SettingsSet/pv1_threshold2_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_jahr>/SettingsSet/pv1_threshold3', type:'sap.ui.model.type.String'}"
+											color="{mc_jahr>/SettingsSet/pv1_threshold3_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_jahr>/SettingsSet/pv1_threshold4', type:'sap.ui.model.type.String'}"
+											color="{mc_jahr>/SettingsSet/pv1_threshold4_color}"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+							</m:FlexBox>
+						</m:HeaderContainer>
+					</m:headerContainer>
+				</m:ObjectHeader>
+			</m:Panel>
+			<m:Panel expandable="true" expanded="false" headerText="{i18n>pveinspeiseziele}" width="auto" class="sapUiResponsiveMargin">
+				<m:ObjectHeader responsive="true" title="{i18n>pveinspeiseziele}">
+					<m:headerContainer>
+						<m:HeaderContainer scrollStep="200" scrollTime="500" showDividers="true" class="sapUiSmallMargin">
+							<m:FlexBox width="10rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<TileContent id="gesamt" unit=" kw/h" footer="{i18n>zaehlerstand}">
+									<content>
+										<NumericContent truncateValueTo="5" value="{pvaktuell>/AktuellSet/gesamtzaehlerstand}"/>
+									</content>
+								</TileContent>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>pvtagesziel} ({mc_tag>/SettingsSet/pv1_targetvaluep})" class="sapUiSmallMargin"/>
+								<m:FlexBox width="5rem" height="5rem">
+									<mc:RadialMicroChart size="M"
+										percentage="{parts: ['pvaktuell>/AktuellSet/gesamt_heute', 'mc_tag>/SettingsSet/pv1_targetvaluep'], formatter: 'de.mangels.controller.formatter.percentage_pv_heute' }"/>
+								</m:FlexBox>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>pvwochenziel} ({mc_woche>/SettingsSet/pv1_targetvaluep})" class="sapUiSmallMargin"/>
+								<m:FlexBox width="5rem" height="5rem">
+									<mc:RadialMicroChart size="M"
+										percentage="{parts: ['pvaktuell>/AktuellSet/gesamt_woche', 'mc_woche>/SettingsSet/pv1_targetvaluep'], formatter: 'de.mangels.controller.formatter.percentage_pv_heute' }"/>
+								</m:FlexBox>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>pvmonatsziel} ({mc_monat>/SettingsSet/pv1_targetvaluep})" class="sapUiSmallMargin"/>
+								<m:FlexBox width="5rem" height="5rem">
+									<mc:RadialMicroChart size="M"
+										percentage="{parts: ['pvaktuell>/AktuellSet/gesamt_monat', 'mc_monat>/SettingsSet/pv1_targetvaluep'], formatter: 'de.mangels.controller.formatter.percentage_pv_heute' }"/>
+								</m:FlexBox>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>pvjahresziel} ({mc_jahr>/SettingsSet/pv1_targetvaluep})" class="sapUiSmallMargin"/>
+								<m:FlexBox width="5rem" height="5rem">
+									<mc:RadialMicroChart size="M"
+										percentage="{parts: ['pvaktuell>/AktuellSet/gesamt_jahr', 'mc_jahr>/SettingsSet/pv1_targetvaluep'], formatter: 'de.mangels.controller.formatter.percentage_pv_heute' }"/>
+								</m:FlexBox>
+							</m:FlexBox>
+						</m:HeaderContainer>
+					</m:headerContainer>
+				</m:ObjectHeader>
+			</m:Panel>
+			<m:Panel expandable="true" expanded="true"
+				headerText="{i18n>vbleistung} - {i18n>vbzaehler} {vbaktuell>/AktuellSet/zaehlernummer} - {i18n>pvmessung} {vbaktuell>/AktuellSet/letztemessung}"
+				width="auto" class="sapUiResponsiveMargin">
+				<m:ObjectHeader responsive="true" title="{i18n>vbleistung}" id="PVB">
+					<m:headerContainer>
+						<m:HeaderContainer scrollStep="200" scrollTime="500" showDividers="true" class="sapUiSmallMargin">
+							<m:FlexBox width="10rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<TileContent id="wattvb" unit="{vbaktuell_rt>/AktuellEchtzeitSet/zeit}" footer="{i18n>aktuelle_leistung}">
+									<content>
+										<NumericContent scale="W" value="{vbaktuell_rt>/AktuellEchtzeitSet/watt}"
+											valueColor="{ path: 'vbaktuell_rt>/AktuellEchtzeitSet/watt', formatter: 'de.mangels.controller.formatter.aktuelle_leistungVB' }"
+											press="pressleistung_vb"/>
+									</content>
+								</TileContent>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>heute}"/>
+								<mc:BulletMicroChart size="L" scale=" {mc_tag>/SettingsSet/vb1_scale}"
+									targetValue="{path:'mc_tag>/SettingsSet/vb1_targetvalue', type:'sap.ui.model.type.String'}">
+									<mc:actual>
+										<mc:BulletMicroChartData value="{vbaktuell>/AktuellSet/gesamt_heute}"
+											color="{parts: ['vbaktuell>/AktuellSet/gesamt_heute', 'mc_tag>/SettingsSet/vb1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heuteVB_neu' }"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold1', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/vb1_threshold1_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold2', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/vb1_threshold2_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold3', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/vb1_threshold3_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold4', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/vb1_threshold4_color}"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>woche}"/>
+								<mc:BulletMicroChart size="L" scale=" {mc_woche>/SettingsSet/vb1_scale}"
+									targetValue="{path:'mc_woche>/SettingsSet/vb1_targetvalue', type:'sap.ui.model.type.String'}">
+									<mc:actual>
+										<mc:BulletMicroChartData value="{vbaktuell>/AktuellSet/gesamt_woche}"
+											color="{parts: ['vbaktuell>/AktuellSet/gesamt_woche', 'mc_woche>/SettingsSet/vb1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heuteVB_neu' }"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="{path:'mc_woche>/SettingsSet/vb1_threshold1', type:'sap.ui.model.type.String'}"
+											color="{mc_woche>/SettingsSet/vb1_threshold1_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_woche>/SettingsSet/vb1_threshold2', type:'sap.ui.model.type.String'}"
+											color="{mc_woche>/SettingsSet/vb1_threshold2_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_woche>/SettingsSet/vb1_threshold3', type:'sap.ui.model.type.String'}"
+											color="{mc_woche>/SettingsSet/vb1_threshold3_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_woche>/SettingsSet/vb1_threshold4', type:'sap.ui.model.type.String'}"
+											color="{mc_woche>/SettingsSet/vb1_threshold4_color}"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>monat}"/>
+								<mc:BulletMicroChart size="L" scale=" {mc_monat>/SettingsSet/vb1_scale}"
+									targetValue="{path:'mc_monat>/SettingsSet/vb1_targetvalue', type:'sap.ui.model.type.String'}">
+									<mc:actual>
+										<mc:BulletMicroChartData value="{vbaktuell>/AktuellSet/gesamt_monat}"
+											color="{parts: ['vbaktuell>/AktuellSet/gesamt_monat', 'mc_monat>/SettingsSet/vb1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heuteVB_neu' }"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="{path:'mc_monat>/SettingsSet/vb1_threshold1', type:'sap.ui.model.type.String'}"
+											color="{mc_monat>/SettingsSet/vb1_threshold1_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_monat>/SettingsSet/vb1_threshold2', type:'sap.ui.model.type.String'}"
+											color="{mc_monat>/SettingsSet/vb1_threshold2_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_monat>/SettingsSet/vb1_threshold3', type:'sap.ui.model.type.String'}"
+											color="{mc_monat>/SettingsSet/vb1_threshold3_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_monat>/SettingsSet/vb1_threshold4', type:'sap.ui.model.type.String'}"
+											color="{mc_monat>/SettingsSet/vb1_threshold4_color}"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>jahr}"/>
+								<mc:BulletMicroChart size="L" scale=" {mc_jahr>/SettingsSet/vb1_scale}"
+									targetValue="{path:'mc_jahr>/SettingsSet/vb1_targetvalue', type:'sap.ui.model.type.String'}">
+									<mc:actual>
+										<mc:BulletMicroChartData value="{vbaktuell>/AktuellSet/gesamt_jahr}"
+											color="{parts: ['vbaktuell>/AktuellSet/gesamt_jahr', 'mc_jahr>/SettingsSet/vb1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heuteVB_neu' }"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="{path:'mc_jahr>/SettingsSet/vb1_threshold1', type:'sap.ui.model.type.String'}"
+											color="{mc_jahr>/SettingsSet/vb1_threshold1_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_jahr>/SettingsSet/vb1_threshold2', type:'sap.ui.model.type.String'}"
+											color="{mc_jahr>/SettingsSet/vb1_threshold2_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_jahr>/SettingsSet/vb1_threshold3', type:'sap.ui.model.type.String'}"
+											color="{mc_jahr>/SettingsSet/vb1_threshold3_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_jahr>/SettingsSet/vb1_threshold4', type:'sap.ui.model.type.String'}"
+											color="{mc_jahr>/SettingsSet/vb1_threshold4_color}"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+							</m:FlexBox>
+						</m:HeaderContainer>
+					</m:headerContainer>
+				</m:ObjectHeader>
+			</m:Panel>
+			<m:Panel expandable="true" expanded="false" headerText="{i18n>vbziele}" width="auto" class="sapUiResponsiveMargin">
+				<m:ObjectHeader responsive="true" title="{i18n>vbziele}">
+					<m:headerContainer>
+						<m:HeaderContainer scrollStep="200" scrollTime="500" showDividers="true" class="sapUiSmallMargin">
+							<m:FlexBox width="10rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<TileContent id="gesamtVB" unit=" kw/h" footer="{i18n>zaehlerstand}">
+									<content>
+										<NumericContent truncateValueTo="5" value="{vbaktuell>/AktuellSet/gesamtzaehlerstand}"/>
+									</content>
+								</TileContent>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>vbtagesziel} ({mc_tag>/SettingsSet/vb1_targetvaluep})" class="sapUiSmallMargin"/>
+								<m:FlexBox width="5rem" height="5rem">
+									<mc:RadialMicroChart size="M"
+										percentage="{parts: ['vbaktuell>/AktuellSet/gesamt_heute', 'mc_tag>/SettingsSet/vb1_targetvaluep'], formatter: 'de.mangels.controller.formatter.percentage_pv_heute' }"/>
+								</m:FlexBox>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>vbwochenziel} ({mc_woche>/SettingsSet/vb1_targetvaluep})" class="sapUiSmallMargin"/>
+								<m:FlexBox width="5rem" height="5rem">
+									<mc:RadialMicroChart size="M"
+										percentage="{parts: ['vbaktuell>/AktuellSet/gesamt_woche', 'mc_woche>/SettingsSet/vb1_targetvaluep'], formatter: 'de.mangels.controller.formatter.percentage_pv_heute' }"/>
+								</m:FlexBox>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>vbmonatsziel} ({mc_monat>/SettingsSet/vb1_targetvaluep})" class="sapUiSmallMargin"/>
+								<m:FlexBox width="5rem" height="5rem">
+									<mc:RadialMicroChart size="M"
+										percentage="{parts: ['vbaktuell>/AktuellSet/gesamt_monat', 'mc_monat>/SettingsSet/vb1_targetvaluep'], formatter: 'de.mangels.controller.formatter.percentage_pv_heute' }"/>
+								</m:FlexBox>
+							</m:FlexBox>
+							<m:FlexBox width="11rem" height="9rem" alignItems="Center" justifyContent="Center" direction="Column">
+								<m:Title text="{i18n>vbjahresziel} ({mc_jahr>/SettingsSet/vb1_targetvaluep})" class="sapUiSmallMargin"/>
+								<m:FlexBox width="5rem" height="5rem">
+									<mc:RadialMicroChart size="M"
+										percentage="{parts: ['vbaktuell>/AktuellSet/gesamt_jahr', 'mc_jahr>/SettingsSet/vb1_targetvaluep'], formatter: 'de.mangels.controller.formatter.percentage_pv_heute' }"/>
+								</m:FlexBox>
+							</m:FlexBox>
+						</m:HeaderContainer>
+					</m:headerContainer>
+				</m:ObjectHeader>
+			</m:Panel>
+		</m:content>
+	</m:Page>
+</mvc:View>

@@ -1,0 +1,19 @@
+<mvc:View controllerName="de.mangels.controller.Startpage" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:mc="sap.suite.ui.microchart" xmlns:layout="sap.ui.layout">
+	<Page title="{i18n>title} - {screendata>/_APPVERSION}" enableScrolling="false">
+		<headerContent>
+			<Button icon="sap-icon://refresh" press="handleReload" tooltip="{i18n>reload1}"/>
+			<Button icon="sap-icon://action-settings" press="handleSettings" tooltip="{i18n>settings}"/>
+			<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom" tooltip="{i18n>fullscreen}"/>
+			<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
+				<layoutData>
+					<FlexItemData growFactor="1"/>
+				</layoutData>
+			</Image>
+		</headerContent>
+
+		<mvc:XMLView viewName="de.mangels.view.Startpage_Desktop" visible="{screendata>/_VIEWDESKTOP}"/>
+		<mvc:XMLView viewName="de.mangels.view.Startpage_Phone" visible="{screendata>/_VIEWPHONE}"/>
+		<!--<mvc:XMLView viewName="de.mangels.view.Card_Watt"/>-->
+	</Page>
+</mvc:View>

@@ -1,0 +1,88 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	
+		<VBox class="sapUiSmallMargin">
+			<f:SimpleForm id="startmicros_d" editable="false" layout="ResponsiveGridLayout" title="{i18n>settingsmircos}" labelSpanXL="4" labelSpanL="4"
+				labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
+				columnsL="2" columnsM="1" singleContainerFullSize="false">
+				<f:content>
+					<core:Title text="{i18n>pvheute}"/>
+					<Label text="{i18n>pv1_scale}"/>
+					<!--<Text text="{pv1_scale}"/>-->
+					<Text text="{mc_tag>/SettingsSet/pv1_scale}"/>
+					
+					<Label text="{i18n>pv1_targetvalue}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_targetvalue}"/>
+
+					<Label text="{i18n>pv1_targetvaluep}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_targetvaluep}"/>
+					
+					<Label text="{i18n>pv1_colorthreshold}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_colorthreshold}"/>
+
+					<Label text="{i18n>pv1_threshold1}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_threshold1}"/>
+					
+					<Label text="{i18n>pv1_threshold1_color}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_threshold1_color}"/>
+
+					<Label text="{i18n>pv1_threshold2}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_threshold2}"/>
+					
+					<Label text="{i18n>pv1_threshold2_color}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_threshold2_color}"/>
+
+					<Label text="{i18n>pv1_threshold3}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_threshold3}"/>
+					
+					<Label text="{i18n>pv1_threshold3_color}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_threshold3_color}"/>
+
+					<Label text="{i18n>pv1_threshold4}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_threshold4}"/>
+					
+					<Label text="{i18n>pv1_threshold4_color}"/>
+					<Text text="{mc_tag>/SettingsSet/pv1_threshold4_color}"/>
+
+
+					<core:Title text="{i18n>vbheute}"/>
+					<Label text="{i18n>vb1_scale}"/>
+					<!--<Text text="{vb1_scale}"/>-->
+					<Text text="{mc_tag>/SettingsSet/vb1_scale}"/>
+					
+					<Label text="{i18n>vb1_targetvalue}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_targetvalue}"/>
+
+					<Label text="{i18n>vb1_targetvaluep}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_targetvaluep}"/>
+					
+					<Label text="{i18n>vb1_colorthreshold}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_colorthreshold}"/>
+
+					<Label text="{i18n>vb1_threshold1}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_threshold1}"/>
+					
+					<Label text="{i18n>vb1_threshold1_color}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_threshold1_color}"/>
+
+					<Label text="{i18n>vb1_threshold2}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_threshold2}"/>
+					
+					<Label text="{i18n>vb1_threshold2_color}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_threshold2_color}"/>
+
+					<Label text="{i18n>vb1_threshold3}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_threshold3}"/>
+					
+					<Label text="{i18n>vb1_threshold3_color}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_threshold3_color}"/>
+
+					<Label text="{i18n>vb1_threshold4}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_threshold4}"/>
+					
+					<Label text="{i18n>vb1_threshold4_color}"/>
+					<Text text="{mc_tag>/SettingsSet/vb1_threshold4_color}"/>
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+
+</core:FragmentDefinition>

@@ -1,0 +1,55 @@
+{
+	"Changelog": [{
+		"version":  "0.1",
+		"features": "Initial Relase for Betatest: All Tiles, Column/Stacked-Bar-Diagramm",
+		"release":  "09.02.2018"
+	}, {
+		"version":  "0.2",
+		"features": "Compare-Bar-Diagramm",
+		"release":  "11.02.2018"
+	}, {
+		"version":  "0.3",
+		"features": "Monitor: Reload-Buttons",
+		"release":  "14.02.2018"
+	}, {
+		"version":  "0.4",
+		"features": "Better rendering for StartView on Phones",
+		"release":  "15.02.2018"
+	}, {
+		"version":  "0.5",
+		"features": "Translation to english",
+		"release":  "16.02.2018"
+	}, {
+		"version":  "0.6",
+		"features": "Actual data now editable and persistend to db",
+		"release":  "18.02.2018"
+	}, {
+		"version":  "0.7",
+		"features": "Simple improvements, Bugfixes",
+		"release":  "22.02.2018"
+	}, {
+		"version":  "0.8",
+		"features": "Reload Data Button on Mainpage",
+		"release":  "11.05.2018"
+	}, {
+		"version":  "0.9",
+		"features": "New tile: Topvalues",
+		"release":  "07.06.2018"
+	}, {
+		"version":  "0.91",
+		"features": "Add some links on infopopup, make autoreload customizable",
+		"release":  "27.06.2018"
+	}, {
+		"version":  "0.92",
+		"features": "Bugfixes",
+		"release":  "30.08.2019"
+	}, {
+		"version":  "0.93",
+		"features": "More date selections",
+		"release":  "04.10.2019"
+	}, {
+		"version":  "0.94",
+		"features": "Switch to https retrieving data",
+		"release":  "02.01.2020"
+	}]
+}

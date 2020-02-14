@@ -1,0 +1,154 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="startmicros_jc" editable="true" layout="ResponsiveGridLayout" title="{i18n>settingsmircos}" labelSpanXL="4" labelSpanL="4"
+			labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
+			columnsL="2" columnsM="1" singleContainerFullSize="false">
+			<f:content>
+				<core:Title text="{i18n>pvjahr}"/>
+				<Label text="{i18n>pv1_scale}"/>
+				<Input value="{mc_jahr>/SettingsSet/pv1_scale}"/>
+				
+				<Label text="{i18n>pv1_targetvalue}"/>
+				<!--<Input type="Number" value="{mc_jahr>/SettingsSet/pv1_targetvalue}"/>-->
+				<Input value="{mc_jahr>/SettingsSet/pv1_targetvalue}"/>
+				<!--<Input type="Number" maxDigit="2" value="{ path: 'pv1_targetvalue', type : 'sap.ui.model.type.Integer', constraints : { minLength : 1, maxLength : 2 } }"/>-->
+				
+				<Label text="{i18n>pv1_targetvaluep}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/pv1_targetvaluep}"/>
+				
+				
+				<Label text="{i18n>pv1_colorthreshold}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/pv1_colorthreshold}"/>
+				
+				<Label text="{i18n>pv1_threshold1}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/pv1_threshold1}"/>
+				
+				<Label text="{i18n>pv1_threshold1_color}"/>
+				<!--<Input value="{vb1_threshold1_color}"/>-->
+				<Select id="pvcj1" selectedKey="{mc_jahr>/SettingsSet/pv1_threshold1_color}">
+					<items>
+						<core:Item text="{i18n>good}" key="{i18n>good}"/>
+						<core:Item text="{i18n>neutral}" key="{i18n>neutral}"/>
+						<core:Item text="{i18n>critical}" key="{i18n>critical}"/>
+						<core:Item text="{i18n>error}" key="{i18n>error}"/>
+					</items>
+				</Select>
+				
+				<Label text="{i18n>pv1_threshold2}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/pv1_threshold2}"/>
+				
+				<Label text="{i18n>pv1_threshold2_color}"/>
+				<!--<Input value="{pv1_threshold2_color}"/>-->
+				<Select id="pvcj2" selectedKey="{mc_jahr>/SettingsSet/pv1_threshold2_color}">
+					<items>
+						<core:Item text="{i18n>good}" key="{i18n>good}"/>
+						<core:Item text="{i18n>neutral}" key="{i18n>neutral}"/>
+						<core:Item text="{i18n>critical}" key="{i18n>critical}"/>
+						<core:Item text="{i18n>error}" key="{i18n>error}"/>
+					</items>
+				</Select>
+				
+				<Label text="{i18n>pv1_threshold3}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/pv1_threshold3}"/>
+				
+				<Label text="{i18n>pv1_threshold3_color}"/>
+				<!--<Input value="{pv1_threshold3_color}"/>-->
+				<Select id="pvcj3" selectedKey="{mc_jahr>/SettingsSet/pv1_threshold3_color}">
+					<items>
+						<core:Item text="{i18n>good}" key="{i18n>good}"/>
+						<core:Item text="{i18n>neutral}" key="{i18n>neutral}"/>
+						<core:Item text="{i18n>critical}" key="{i18n>critical}"/>
+						<core:Item text="{i18n>error}" key="{i18n>error}"/>
+					</items>
+				</Select>
+				
+				<Label text="{i18n>pv1_threshold4}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/pv1_threshold4}"/>
+				
+				<Label text="{i18n>pv1_threshold4_color}"/>
+				<!--<Input value="{pv1_threshold4_color}"/>-->
+				<Select id="pvcj4" selectedKey="{mc_jahr>/SettingsSet/pv1_threshold4_color}">
+					<items>
+						<core:Item text="{i18n>good}" key="{i18n>good}"/>
+						<core:Item text="{i18n>neutral}" key="{i18n>neutral}"/>
+						<core:Item text="{i18n>critical}" key="{i18n>critical}"/>
+						<core:Item text="{i18n>error}" key="{i18n>error}"/>
+					</items>
+				</Select>
+				
+				
+				
+				<core:Title text="{i18n>vbjahr}"/>
+				<Label text="{i18n>vb1_scale}"/>
+				<Input value="{mc_jahr>/SettingsSet/vb1_scale}"/>
+				
+				<Label text="{i18n>vb1_targetvalue}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/vb1_targetvalue}"/>
+				
+				<Label text="{i18n>vb1_targetvaluep}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/vb1_targetvaluep}"/>
+				
+				<Label text="{i18n>vb1_colorthreshold}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/vb1_colorthreshold}"/>
+				
+				<Label text="{i18n>vb1_threshold1}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/vb1_threshold1}"/>
+				
+				<Label text="{i18n>vb1_threshold1_color}"/>
+				<!--<Input value="{vb1_threshold1_color}"/>-->
+				<Select id="vbcj1" selectedKey="{mc_jahr>/SettingsSet/vb1_threshold1_color}">
+					<items>
+						<core:Item text="{i18n>good}" key="{i18n>good}"/>
+						<core:Item text="{i18n>neutral}" key="{i18n>neutral}"/>
+						<core:Item text="{i18n>critical}" key="{i18n>critical}"/>
+						<core:Item text="{i18n>error}" key="{i18n>error}"/>
+					</items>
+				</Select>
+				
+				<Label text="{i18n>vb1_threshold2}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/vb1_threshold2}"/>
+				
+				<Label text="{i18n>vb1_threshold2_color}"/>
+				<!--<Input value="{vb1_threshold2_color}"/>-->
+				<Select id="vbcj2" selectedKey="{mc_jahr>/SettingsSet/vb1_threshold2_color}">
+					<items>
+						<core:Item text="{i18n>good}" key="{i18n>good}"/>
+						<core:Item text="{i18n>neutral}" key="{i18n>neutral}"/>
+						<core:Item text="{i18n>critical}" key="{i18n>critical}"/>
+						<core:Item text="{i18n>error}" key="{i18n>error}"/>
+					</items>
+				</Select>
+				
+				<Label text="{i18n>vb1_threshold3}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/vb1_threshold3}"/>
+				
+				<Label text="{i18n>vb1_threshold3_color}"/>
+				<!--<Input value="{vb1_threshold3_color}"/>-->
+				<Select id="vbcj3" selectedKey="{mc_jahr>/SettingsSet/vb1_threshold3_color}">
+					<items>
+						<core:Item text="{i18n>good}" key="{i18n>good}"/>
+						<core:Item text="{i18n>neutral}" key="{i18n>neutral}"/>
+						<core:Item text="{i18n>critical}" key="{i18n>critical}"/>
+						<core:Item text="{i18n>error}" key="{i18n>error}"/>
+					</items>
+				</Select>
+				
+				<Label text="{i18n>vb1_threshold4}"/>
+				<Input type="Number" value="{mc_jahr>/SettingsSet/vb1_threshold4}"/>
+				
+				<Label text="{i18n>vb1_threshold4_color}"/>
+				<!--<Input value="{vb1_threshold4_color}"/>-->
+				<Select id="vbcj4" selectedKey="{mc_jahr>/SettingsSet/vb1_threshold4_color}">
+					<items>
+						<core:Item text="{i18n>good}" key="{i18n>good}"/>
+						<core:Item text="{i18n>neutral}" key="{i18n>neutral}"/>
+						<core:Item text="{i18n>critical}" key="{i18n>critical}"/>
+						<core:Item text="{i18n>error}" key="{i18n>error}"/>
+					</items>
+				</Select>
+				
+				
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>

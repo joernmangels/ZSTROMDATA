@@ -1,0 +1,9 @@
+<mvc:View height="40%" controllerName="de.mangels.controller.TileMenu" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page enableScrolling="false" showHeader="false">
+		<TileContainer id="tcontainer" tiles="{menu>/TileCollection}">
+			<StandardTile icon="{menu>icon}" info="{menu>info}" infoState="{menu>infoState}" number="{menu>number}" numberUnit="{menu>numberUnit}"
+				press="onTilePress" title="{menu>title}" type="{menu>type}"/>
+		</TileContainer>
+		<footer></footer>
+	</Page>
+</mvc:View>

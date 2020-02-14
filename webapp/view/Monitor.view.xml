@@ -1,0 +1,118 @@
+<mvc:View controllerName="de.mangels.controller.Monitor" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:mc="sap.suite.ui.microchart">
+	<Page
+		title="{i18n>monitortitle} - {pvaktuell_rt>/AktuellEchtzeitSet/zeit} -> {i18n>intervall} {autoreload>/SettingsSet/pv1_scale} ({autoreload>/SettingsSet/pv1_targetvalue})"
+		showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">
+		<headerContent>
+			<ToggleButton icon="sap-icon://refresh" press="handleAutoreload" class="sapUiSmallMarginBottom" tooltip="{i18n>reloadbutton}"/>
+			<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom" tooltip="{i18n>fullscreen}"/>
+			<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
+				<layoutData>
+					<FlexItemData growFactor="1"/>
+				</layoutData>
+			</Image>
+		</headerContent>
+		<!--<NumericContent value="{pvaktuell_rt>/AktuellEchtzeitSet/watt}" scale="W" class="overlay.active" animateTextChange="true"-->
+		<!--	iconDescription="PV" size="200%" withMargin="false"/>-->
+		<!--<Text class="BIGFONT"  textAlign="Center" text="{pvaktuell_rt>/AktuellEchtzeitSet/watt">-->
+		<!--</Text>-->
+		<l:VerticalLayout width="100%">
+			<l:content>
+				<FlexBox class="GREEN" renderType="Bare" height="100%" alignItems="Center" justifyContent="Center">
+					<items>
+						<Text text="PV: " class="BIGFONT1"></Text>
+						<Text text="{pvaktuell_rt>/AktuellEchtzeitSet/watt}" class="BIGFONT"></Text>
+						<Text text="Watt" class="BIGFONT1"></Text>
+					</items>
+				</FlexBox>
+			</l:content>
+			<l:content>
+				<FlexBox class="RED" renderType="Bare" height="100%" alignItems="Center" justifyContent="Center">
+					<items>
+						<Text text="VB: " class="BIGFONT1"></Text>
+						<Text text="{vbaktuell_rt>/AktuellEchtzeitSet/watt}" class="BIGFONT"></Text>
+						<Text text="Watt" class="BIGFONT1"></Text>
+					</items>
+				</FlexBox>
+			</l:content>
+			<l:content>
+				<Panel>
+					<FlexBox renderType="Bare">
+						<items>
+							<Panel expandable="true" expanded="true" headerText="{i18n>pveinspeiseleistung}">
+								<!--<mc:BulletMicroChart size="L" width="100%" scale="kw/h" targetValue="20">-->
+								<!--	<mc:actual>-->
+								<!--		<mc:BulletMicroChartData value="{pvaktuell>/AktuellSet/gesamt_heute}" color="Good"/>-->
+								<!--	</mc:actual>-->
+								<!--	<mc:thresholds>-->
+								<!--		<mc:BulletMicroChartData value="0" color="Error"/>-->
+								<!--		<mc:BulletMicroChartData value="5" color="Critical"/>-->
+								<!--		<mc:BulletMicroChartData value="9" color="Neutral"/>-->
+								<!--		<mc:BulletMicroChartData value="14" color="Good"/>-->
+								<!--	</mc:thresholds>-->
+								<!--</mc:BulletMicroChart>-->
+								<mc:BulletMicroChart width="100%" size="L" scale=" {mc_tag>/SettingsSet/pv1_scale}"
+									targetValue="{path:'mc_tag>/SettingsSet/pv1_targetvalue', type:'sap.ui.model.type.String'}">
+									<mc:actual>
+										<mc:BulletMicroChartData value="{pvaktuell>/AktuellSet/gesamt_heute}"
+											color="{parts: ['pvaktuell>/AktuellSet/gesamt_heute', 'mc_tag>/SettingsSet/pv1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heute_neu' }"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold1', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/pv1_threshold1_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold2', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/pv1_threshold2_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold3', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/pv1_threshold3_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold4', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/pv1_threshold4_color}"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+								<Button type="Accept" text="{i18n>pvreload}" press="onPVReload" ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+									<layoutData>
+										<FlexItemData growFactor="1"/>
+									</layoutData>
+								</Button>
+							</Panel>
+							<Panel expandable="true" expanded="true" headerText="{i18n>vbleistung}">
+								<!--<mc:BulletMicroChart size="L" width="100%" scale="kw/h" targetValue="20">-->
+								<!--	<mc:actual>-->
+								<!--		<mc:BulletMicroChartData value="{vbaktuell>/AktuellSet/gesamt_heute}" color="Error"/>-->
+								<!--	</mc:actual>-->
+								<!--	<mc:thresholds>-->
+								<!--		<mc:BulletMicroChartData value="0" color="Good"/>-->
+								<!--		<mc:BulletMicroChartData value="10" color="Neutral"/>-->
+								<!--		<mc:BulletMicroChartData value="15" color="Critical"/>-->
+								<!--		<mc:BulletMicroChartData value="20" color="Error"/>-->
+								<!--	</mc:thresholds>-->
+								<!--</mc:BulletMicroChart>-->
+								<mc:BulletMicroChart width="100%" size="L" scale=" {mc_tag>/SettingsSet/vb1_scale}"
+									targetValue="{path:'mc_tag>/SettingsSet/vb1_targetvalue', type:'sap.ui.model.type.String'}">
+									<mc:actual>
+										<mc:BulletMicroChartData value="{vbaktuell>/AktuellSet/gesamt_heute}"
+											color="{parts: ['vbaktuell>/AktuellSet/gesamt_heute', 'mc_tag>/SettingsSet/vb1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heuteVB_neu' }"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold1', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/vb1_threshold1_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold2', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/vb1_threshold2_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold3', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/vb1_threshold3_color}"/>
+										<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold4', type:'sap.ui.model.type.String'}"
+											color="{mc_tag>/SettingsSet/vb1_threshold4_color}"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+								<Button type="Reject" text="{i18n>vbreload}" press="onVBReload" ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+									<layoutData>
+										<FlexItemData growFactor="1"/>
+									</layoutData>
+								</Button>
+							</Panel>
+						</items>
+					</FlexBox>
+				</Panel>
+			</l:content>
+		</l:VerticalLayout>
+	</Page>
+</mvc:View>

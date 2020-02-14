@@ -1,0 +1,58 @@
+<mvc:View controllerName="de.mangels.controller.Startpage" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:mc="sap.suite.ui.microchart" xmlns:layout="sap.ui.layout">
+	<GenericTile frameType="TwoByOne" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>aktuelltitle}"
+		headerImage="images/aktuell.png" press="onactdatapress">
+		<tileContent>
+			<TileContent footer="{i18n>pvheute}">
+				<content>
+					<mc:BulletMicroChart size="L" scale=" {mc_tag>/SettingsSet/pv1_scale}" isResponsive="true"
+						targetValue="{path:'mc_tag>/SettingsSet/pv1_targetvalue', type:'sap.ui.model.type.String'}">
+						<mc:actual>
+							<mc:BulletMicroChartData value="{pvaktuell>/AktuellSet/gesamt_heute}"
+								color="{parts: ['pvaktuell>/AktuellSet/gesamt_heute', 'mc_tag>/SettingsSet/pv1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heute_neu' }"/>
+						</mc:actual>
+						<mc:thresholds>
+							<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold1', type:'sap.ui.model.type.String'}"
+								color="{mc_tag>/SettingsSet/pv1_threshold1_color}"/>
+							<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold2', type:'sap.ui.model.type.String'}"
+								color="{mc_tag>/SettingsSet/pv1_threshold2_color}"/>
+							<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold3', type:'sap.ui.model.type.String'}"
+								color="{mc_tag>/SettingsSet/pv1_threshold3_color}"/>
+							<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/pv1_threshold4', type:'sap.ui.model.type.String'}"
+								color="{mc_tag>/SettingsSet/pv1_threshold4_color}"/>
+						</mc:thresholds>
+					</mc:BulletMicroChart>
+				</content>
+			</TileContent>
+			<TileContent footer="{i18n>vbheute}">
+				<content>
+					<mc:BulletMicroChart size="L" scale=" {mc_tag>/SettingsSet/vb1_scale}" isResponsive="true"
+						targetValue="{path:'mc_tag>/SettingsSet/vb1_targetvalue', type:'sap.ui.model.type.String'}">
+						<mc:actual>
+							<mc:BulletMicroChartData value="{vbaktuell>/AktuellSet/gesamt_heute}"
+								color="{parts: ['vbaktuell>/AktuellSet/gesamt_heute', 'mc_tag>/SettingsSet/vb1_colorthreshold'], formatter: 'de.mangels.controller.formatter.gesamt_heuteVB_neu' }"/>
+						</mc:actual>
+						<mc:thresholds>
+							<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold1', type:'sap.ui.model.type.String'}"
+								color="{mc_tag>/SettingsSet/vb1_threshold1_color}"/>
+							<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold2', type:'sap.ui.model.type.String'}"
+								color="{mc_tag>/SettingsSet/vb1_threshold2_color}"/>
+							<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold3', type:'sap.ui.model.type.String'}"
+								color="{mc_tag>/SettingsSet/vb1_threshold3_color}"/>
+							<mc:BulletMicroChartData value="{path:'mc_tag>/SettingsSet/vb1_threshold4', type:'sap.ui.model.type.String'}"
+								color="{mc_tag>/SettingsSet/vb1_threshold4_color}"/>
+						</mc:thresholds>
+					</mc:BulletMicroChart>
+				</content>
+			</TileContent>
+		</tileContent>
+	</GenericTile>
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>monitor}" headerImage="images/monitor.png" press="onmonitor"></GenericTile>
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>auswertung}" headerImage="images/warning.png" press="onauswerten"></GenericTile>
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>topwerte}" headerImage="images/mountain.png" press="ontopwerte"></GenericTile>
+	<!--<items>-->
+	<!--	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>vbauswerten}" headerImage="images/warning.png"-->
+	<!--		press="onvbauswerten"></GenericTile>-->
+	<!--</items>-->
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>infos}" headerImage="images/info.png" press="oninformation"></GenericTile>
+</mvc:View>

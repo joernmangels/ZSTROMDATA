@@ -1,0 +1,30 @@
+{
+	"SettingsCollection": [
+		{
+			"pv1_scale": " kw/h",
+			"pv1_targetvalue": "20",
+			"pv1_targetvaluep": "18",
+			"pv1_colorthreshold": "9.0",
+			"pv1_threshold1": "0",
+			"pv1_threshold1_color": "Error",
+			"pv1_threshold2": "5",
+			"pv1_threshold2_color": "Critical",
+			"pv1_threshold3": "9",
+			"pv1_threshold3_color": "Neutral",
+			"pv1_threshold4": "14",
+			"pv1_threshold4_color": "Good",
+			"vb1_scale": " kw/h",
+			"vb1_targetvalue": "20",
+			"vb1_targetvaluep": "20",
+			"vb1_colorthreshold": "12.0",
+			"vb1_threshold1": "0",
+			"vb1_threshold1_color": "Good",
+			"vb1_threshold2": "10",
+			"vb1_threshold2_color": "Neutral",
+			"vb1_threshold3": "15",
+			"vb1_threshold3_color": "Critical",
+			"vb1_threshold4": "20",
+			"vb1_threshold4_color": "Error"
+		}
+	]
+}

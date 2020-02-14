@@ -1,0 +1,13 @@
+{
+	"TileCollection": [{
+		"icon": "images/aktuell.png",
+		"title": "Aktuelle Zähler-Daten",
+		"target": "onNavToAktuelleDaten"
+	}, {
+		"icon": "images/sonne.png",
+		"title": "Stromeinspeisung auswerten"
+	}, {
+		"icon": "images/warning.png",
+		"title": "Stromverbrauch auswerten"
+	}]
+}

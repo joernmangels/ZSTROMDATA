@@ -1,0 +1,13 @@
+<mvc:View controllerName="de.mangels.controller.Startpage" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page title="{i18n>title}">
+		<layout:VerticalLayout class="sapUiResponsiveMargin">
+			<Title class="sapUiTinyMarginBegin" text="{i18n>startpageTilesGroupTitle}" titleStyle="H2"/>
+			<layout:HorizontalLayout allowWrapping="true">
+				<TileContainer id="container" tileDelete="handleTileDelete" tiles="{menu>/TileCollection}">
+					<StandardTile icon="{menu>icon}" info="{menu>info}" infoState="{menu>infoState}" number="{menu>number}" numberUnit="{menu>numberUnit}"
+						press="onTilePress" title="{menu>title}" type="{menu>type}"/>
+				</TileContainer>
+			</layout:HorizontalLayout>
+		</layout:VerticalLayout>
+	</Page>
+</mvc:View>

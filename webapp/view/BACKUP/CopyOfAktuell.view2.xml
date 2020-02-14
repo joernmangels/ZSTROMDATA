@@ -1,0 +1,37 @@
+<mvc:View xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="de.mangels.controller.Aktuell" xmlns:mc="sap.suite.ui.microchart">
+	<Page
+		title="{i18n>akuellpv} - {i18n>pvzaehler} {pvaktuell>/AktuellSet/zaehlernummer} - {i18n>pvmessung} {pvaktuell>/AktuellSet/letztemessung}"
+		showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">
+		<l:VerticalLayout width="100%">
+			<l:content>
+				<Panel>
+					<headerToolbar>
+						<Toolbar>
+							<Title level="H2" text="{i18n>pveinspeiseleistung}"/>
+						</Toolbar>
+					</headerToolbar>
+					<FlexBox height="150px" alignItems="Start" justifyContent="Center">
+						<items>
+							<FlexBox height="150px">
+								<Title text="{i18n>Heute}" textAlign="Center"/>
+
+								<!--<mc:BulletMicroChart size="L" scale="kw/h" targetValue="20" forecastValue="10" >-->
+								<!--	<mc:actual>-->
+								<!--		<mc:BulletMicroChartData value="{pvaktuell>/AktuellSet/gesamt_heute}"-->
+								<!--			color="{ path: 'pvaktuell>/AktuellSet/gesamt_heute', formatter: 'de.mangels.controller.Formatter.gesamt_heute' }"/>-->
+								<!--	</mc:actual>-->
+								<!--	<mc:thresholds>-->
+								<!--		<mc:BulletMicroChartData value="0" color="Error"/>-->
+								<!--		<mc:BulletMicroChartData value="9" color="Critical"/>-->
+								<!--		<mc:BulletMicroChartData value="10" color="Good"/>-->
+								<!--	</mc:thresholds>-->
+								<!--</mc:BulletMicroChart>-->
+							</FlexBox>
+						</items>
+					</FlexBox>
+				</Panel>
+			</l:content>
+		</l:VerticalLayout>
+	</Page>
+</mvc:View>

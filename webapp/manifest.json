@@ -1,0 +1,153 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "de.mangels",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "0.9.4"
+		},
+		"title": "{{title}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"ach": "ach"
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "images/favicon.ico",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_hcw",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "de.mangels.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.50.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ui.commons": {},
+				"sap.suite.ui.microchart": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "de.mangels.i18n.i18n"
+				}
+			},
+			"menu": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/Tilemenu/Tilemenu.json"
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "de.mangels.view",
+				"controlId": "idAppControl",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": [
+						"startpage"
+					]
+				}
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "home",
+				"target": "startpage"
+			}, {
+				"pattern": "onNavToAktuelleDaten",
+				"name": "onNavToAktuelleDaten",
+				"target": "Aktuell"
+			}, {
+				"pattern": "onNavToInformation",
+				"name": "onNavToInformation",
+				"target": "Information"
+			}, {
+				"pattern": "onNavToAuswertung1",
+				"name": "onNavToAuswertung1",
+				"target": "auswertung1"
+			}, {
+				"pattern": "onNavToMonitor",
+				"name": "onNavToMonitor",
+				"target": "monitor"
+			}, {
+				"pattern": "onNavToSettings",
+				"name": "onNavToSettings",
+				"target": "settings"
+			}, {
+				"pattern": "onNavToTopValues",
+				"name": "onNavToTopValues",
+				"target": "topvalues"
+			}],
+			"targets": {
+				"startpage": {
+					"viewName": "Startpage",
+					"viewLevel": 0
+				},
+				"Aktuell": {
+					"viewName": "Aktuell",
+					"viewLevel": 1
+				},
+				"Information": {
+					"viewName": "Information",
+					"viewLevel": 1
+				},
+				"monitor": {
+					"viewName": "Monitor",
+					"viewId": "monitor",
+					"viewLevel": 1
+				},
+				"auswertung1": {
+					"viewName": "Auswertung1",
+					"viewLevel": 1
+				},
+				"settings": {
+					"viewName": "Settings",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"topvalues": {
+					"viewName": "Topvalues",
+					"viewLevel": 1,
+					"transition": "flip"
+				}
+			}
+		}
+	}
+}

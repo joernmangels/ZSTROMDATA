@@ -1,0 +1,2 @@
+// Auswertung: Vergleich 
+// Auswertung: Switch Diagramme

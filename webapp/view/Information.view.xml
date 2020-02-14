@@ -1,0 +1,59 @@
+<mvc:View controllerName="de.mangels.controller.Information" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page title="{i18n>informationtitle}" showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">
+		<headerContent>
+			<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom" tooltip="{i18n>fullscreen}"/>
+			<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
+				<layoutData>
+					<FlexItemData growFactor="1"/>
+				</layoutData>
+			</Image>
+		</headerContent>
+		
+		<!--Nebeneinander-->
+		<!--<l:VerticalLayout width="100%">-->
+		<!--	<l:content>-->
+		<!--		<Panel>-->
+		<!--			<FlexBox renderType="Bare">-->
+		<!--alignItems="Start">-->
+		<!--				<items>-->
+		<!--					<Panel expandable="true" expanded="false" headerText="{i18n>pdf}">-->
+		<!--						<PDFViewer source="pdf/EGM-series.pdf" title="{i18n>egmseries}" height="650px">-->
+		<!--							<layoutData>-->
+		<!--								<FlexItemData growFactor="1"/>-->
+		<!--							</layoutData>-->
+		<!--						</PDFViewer>-->
+		<!--					</Panel>-->
+		<!--					<Panel expandable="true" expanded="false" headerText="{i18n>modulinfo}">-->
+		<!--						<Image src="images/egm2.jpg">-->
+		<!--							<layoutData>-->
+		<!--								<FlexItemData growFactor="1"/>-->
+		<!--							</layoutData>-->
+		<!--						</Image>-->
+		<!--					</Panel>-->
+		<!--				</items>-->
+		<!--			</FlexBox>-->
+		<!--		</Panel>-->
+		<!--	</l:content>-->
+		<!--</l:VerticalLayout>-->
+		
+		<!--untereinander-->
+		<l:VerticalLayout width="100%">
+			<l:content>
+				<Panel expandable="true" expanded="true" headerText="{i18n>pdf}">
+					<PDFViewer source="pdf/EGM-series.pdf" title="{i18n>egmseries}" height="650px">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</PDFViewer>
+				</Panel>
+				<Panel expandable="true" expanded="false" headerText="{i18n>modulinfo}">
+					<Image src="images/egm2.jpg">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Image>
+				</Panel>
+			</l:content>
+		</l:VerticalLayout>
+	</Page>
+</mvc:View>
