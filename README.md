@@ -1,4 +1,5 @@
 # ZSTROMDATA
 Stromdaten-Überblick
 
-Aktuelle Version 0.9.4 (https)
+Version 0.9.5 (CountdownBar)
+Version 0.9.4 (https)
