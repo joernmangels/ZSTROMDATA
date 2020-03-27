@@ -4,8 +4,8 @@
 		<headerContent>
 			<Button icon="sap-icon://refresh" press="handleReload" tooltip="{i18n>reload1}"/>
 			<Button icon="sap-icon://action-settings" press="handleSettings" tooltip="{i18n>settings}"/>
-			<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom" tooltip="{i18n>fullscreen}"/>
-			<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
+			<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" tooltip="{i18n>fullscreen}"/>
+			<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/Solar_energy_icon.png" width="3em">
 				<layoutData>
 					<FlexItemData growFactor="1"/>
 				</layoutData>

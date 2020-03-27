@@ -3,7 +3,7 @@
 	<Page title="{i18n>title}" enableScrolling="false">
 		<headerContent>
 			<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom" tooltip="{i18n>fullscreen}"/>
-			<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
+			<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/Solar_energy_icon.png" width="3em">
 				<layoutData>
 					<FlexItemData growFactor="1"/>
 				</layoutData>
@@ -53,7 +53,7 @@
 							</GenericTile>
 						</items>
 						<items>
-							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>pvauswerten}" headerImage="images/sonne.png"
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>pvauswerten}" headerImage="images/Solar_energy_icon.png"
 								press="onpvauswerten"></GenericTile>
 						</items>
 						<items>

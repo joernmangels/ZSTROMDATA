@@ -153,16 +153,16 @@ sap.ui.define([
 			// 	controller._set_autoreload(controller);
 			// }
 
-			var view = sap.ui.getCore().byId("__component0---monitor");
-			if (view) {
-				var controller = sap.ui.controller("de.mangels.controller.Monitor");
+			// var view = sap.ui.getCore().byId("__component0---monitor");
+			// if (view) {
+			// 	var controller = sap.ui.controller("de.mangels.controller.Monitor");
 				
-				var oModel =  this.getView().getModel("autoreload");
-				view.setModel(oModel, "autoreload");
-				var counter = controller._get_intervall_reload(oModel);
-				var comp = this.getOwnerComponent();
-				comp._trigger.setInterval(counter);
-			}
+			// 	var oModel =  this.getView().getModel("autoreload");
+			// 	view.setModel(oModel, "autoreload");
+			// 	var counter = controller._get_intervall_reload(oModel);
+			// 	var comp = this.getOwnerComponent();
+			// 	comp._trigger.setInterval(counter);
+			// }
 
 			var savetext = this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("savetext");
 			MessageToast.show(savetext);
