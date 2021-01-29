@@ -51,5 +51,9 @@
 		"version":  "0.94",
 		"features": "Switch to https retrieving data",
 		"release":  "02.01.2020"
+	}, {
+		"version":  "0.95",
+		"features": "Monitor/CountdownBar",
+		"release":  "27.03.2020"
 	}]
 }

@@ -4,7 +4,7 @@
 		"title": "Aktuelle Zähler-Daten",
 		"target": "onNavToAktuelleDaten"
 	}, {
-		"icon": "images/sonne.png",
+		"icon": "images/Solar_energy_icon.png",
 		"title": "Stromeinspeisung auswerten"
 	}, {
 		"icon": "images/warning.png",

@@ -1,17 +1,43 @@
 <mvc:View controllerName="de.mangels.controller.Monitor" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
 	xmlns:mc="sap.suite.ui.microchart">
-	<Page
-		title="{i18n>monitortitle} - {pvaktuell_rt>/AktuellEchtzeitSet/zeit} -> {i18n>intervall} {autoreload>/SettingsSet/pv1_scale} ({autoreload>/SettingsSet/pv1_targetvalue})"
-		showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">
-		<headerContent>
-			<ToggleButton icon="sap-icon://refresh" press="handleAutoreload" class="sapUiSmallMarginBottom" tooltip="{i18n>reloadbutton}"/>
-			<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom" tooltip="{i18n>fullscreen}"/>
-			<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
-				<layoutData>
-					<FlexItemData growFactor="1"/>
-				</layoutData>
-			</Image>
-		</headerContent>
+	<!--<Page-->
+	<!--	title="{i18n>monitortitle} - {pvaktuell_rt>/AktuellEchtzeitSet/zeit} -> {i18n>intervall} {autoreload>/SettingsSet/pv1_scale} ({autoreload>/SettingsSet/pv1_targetvalue})"-->
+	<!--	showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">-->
+	<Page backgroundDesign="Solid">
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<HBox>
+						<Button icon="sap-icon://nav-back" press="onNavButtonPressed" class="sapUiSmallMarginEnd"/>
+						<ProgressIndicator id="pgt" percentValue="{GLOSET>/_autoreload_pg_percent}" displayValue="{GLOSET>/_autoreload_pg_text}" showValue="true"
+							state="Success" width="200px" visible="{GLOSET>/_autoreload}"/>
+					</HBox>
+				</contentLeft>
+				<contentMiddle>
+					<Title
+						text="{i18n>monitortitle} - {pvaktuell_rt>/AktuellEchtzeitSet/zeit} -> {i18n>intervall} {autoreload>/SettingsSet/pv1_scale} ({autoreload>/SettingsSet/pv1_targetvalue})"/>
+				</contentMiddle>
+				<contentRight>
+					<ToggleButton id="TG" icon="sap-icon://refresh" press="handleAutoreload" tooltip="{i18n>reloadbutton}"/>
+					<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" tooltip="{i18n>fullscreen}"/>
+					<Button icon="sap-icon://action-settings" press="handleSettings" tooltip="{i18n>settings}"/>
+					<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/Solar_energy_icon.png" width="3em">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Image>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<!--<headerContent>-->
+		<!--	<ToggleButton icon="sap-icon://refresh" press="handleAutoreload" tooltip="{i18n>reloadbutton}"/>-->
+		<!--	<ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" tooltip="{i18n>fullscreen}"/>-->
+		<!--	<Image decorative="false" densityAware="false" press="handleImage3Press" src="images/Solar_energy_icon.png" width="3em">-->
+		<!--		<layoutData>-->
+		<!--			<FlexItemData growFactor="1"/>-->
+		<!--		</layoutData>-->
+		<!--	</Image>-->
+		<!--</headerContent>-->
 		<!--<NumericContent value="{pvaktuell_rt>/AktuellEchtzeitSet/watt}" scale="W" class="overlay.active" animateTextChange="true"-->
 		<!--	iconDescription="PV" size="200%" withMargin="false"/>-->
 		<!--<Text class="BIGFONT"  textAlign="Center" text="{pvaktuell_rt>/AktuellEchtzeitSet/watt">-->
@@ -21,7 +47,7 @@
 				<FlexBox class="GREEN" renderType="Bare" height="100%" alignItems="Center" justifyContent="Center">
 					<items>
 						<Text text="PV: " class="BIGFONT1"></Text>
-						<Text text="{pvaktuell_rt>/AktuellEchtzeitSet/watt}" class="BIGFONT"></Text>
+						<Text text="{pvaktuell_rt>/AktuellEchtzeitSet/watt}" class="BIGFONT_NEW"></Text>
 						<Text text="Watt" class="BIGFONT1"></Text>
 					</items>
 				</FlexBox>
@@ -30,7 +56,7 @@
 				<FlexBox class="RED" renderType="Bare" height="100%" alignItems="Center" justifyContent="Center">
 					<items>
 						<Text text="VB: " class="BIGFONT1"></Text>
-						<Text text="{vbaktuell_rt>/AktuellEchtzeitSet/watt}" class="BIGFONT"></Text>
+						<Text text="{vbaktuell_rt>/AktuellEchtzeitSet/watt}" class="BIGFONT_NEW"></Text>
 						<Text text="Watt" class="BIGFONT1"></Text>
 					</items>
 				</FlexBox>

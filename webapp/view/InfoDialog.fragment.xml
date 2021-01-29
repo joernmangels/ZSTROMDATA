@@ -2,7 +2,7 @@
 	<Dialog id="infoDialog" title="{i18n>title}">
 		<content>
 			<HBox class="sapUiSmallMarginTop sapUiSmallMarginBottom sapUiSmallMarginBegin">
-				<Image width="170px" densityAware="false" decorative="false" src="images/sonne.png"></Image>
+				<Image width="170px" densityAware="false" decorative="false" src="images/Solar_energy_icon.png"></Image>
 				<VBox class="sapUiSmallMarginBegin">
 					<Title text="{i18n>title}"/>
 					<Text text="{i18n>appDescription}"/>

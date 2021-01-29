@@ -3,6 +3,6 @@
 	xmlns="sap.m"
 	displayBlock="true">
 	<App id="idAppControl"
-		backgroundImage="images/Solar_JM.jpg"
-		backgroundOpacity="0.3"/>
+		backgroundImage="images/Solar_JM_NEW.jpg"
+		backgroundOpacity="0.4"/>
 </mvc:View>

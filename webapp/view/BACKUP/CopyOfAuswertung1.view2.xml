@@ -9,7 +9,7 @@
 	<m:Page title="{i18n>auswertung}" showNavButton="true" navButtonPress="onNavButtonPressed" backgroundDesign="Solid">
 		<m:headerContent>
 			<m:ToggleButton icon="sap-icon://full-screen" press="handleFullscreen" class="sapUiSmallMarginBottom" tooltip="{i18n>fullscreen}"/>
-			<m:Image decorative="false" densityAware="false" press="handleImage3Press" src="images/sonne.png" width="3em">
+			<m:Image decorative="false" densityAware="false" press="handleImage3Press" src="images/Solar_energy_icon.png" width="3em">
 				<m:layoutData>
 					<m:FlexItemData growFactor="1"/>
 				</m:layoutData>
