@@ -31,7 +31,7 @@ sap.ui.define([
 			
 			//SetUp HostName
 			var currentHostname = window.location.hostname;
-			if (currentHostname === "localhost" || currentHostname === "192.168.2.200") {
+			if (currentHostname === "localhost" || currentHostname === "127.0.0.1" || currentHostname === "192.168.2.200") {
 			//if (currentHostname === "localhost" || currentHostname === "192.168.2.140") {
 				targetHostname = "192.168.2.200:6580";
 				targetprotocol = "http://";
