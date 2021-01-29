@@ -39,9 +39,10 @@ sap.ui.define([
 				//targetHostname = "jmcam.goip.de";
 			} else {
 				//targetHostname = "jmangels.goip.de";
-				//targetHostname = "jmangels.goip.de:6580";
-				targetHostname = "jmangels.goip.de:6581";
-				targetprotocol = "https://";
+				targetHostname = "jmangels.goip.de:6580";
+				//targetHostname = "jmangels.goip.de:6581";
+				//targetprotocol = "https://";
+				targetprotocol = "http://";
 			}
 			
 			this._loadSettings_all(targetprotocol, targetHostname);
