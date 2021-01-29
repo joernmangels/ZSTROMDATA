@@ -55,5 +55,9 @@
 		"version":  "0.95",
 		"features": "Monitor/CountdownBar",
 		"release":  "27.03.2020"
+	}, {
+		"version":  "0.96",
+		"features": "Bugfix",
+		"release":  "29.01.2021"
 	}]
 }
