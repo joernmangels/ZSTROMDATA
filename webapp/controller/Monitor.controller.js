@@ -271,8 +271,11 @@ sap.ui.define([
 			newPercent = Math.round(newPercent);
 
 			var rest_date = new Date(time_rest);
-			var rest_mins = rest_date.getMinutes();
-			var rest_secs = rest_date.getSeconds();
+			
+			//var rest_mins = rest_date.getMinutes();
+			//var rest_secs = rest_date.getSeconds();
+			var rest_mins = ("00" + rest_date.getMinutes()).slice(-2);
+			var rest_secs = ("00" + rest_date.getSeconds()).slice(-2);
 
 			if (newPercent >= 0) {
 				oViewModel.setProperty("/_autoreload_pg_percent", newPercent);
